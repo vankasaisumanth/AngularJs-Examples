@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> "first ang </title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script type="text/javascript">
+			var sample= angular.module("sample",[]).run(["$rootScope",function($rootScope){
+				$rootScope.TaxPercent = 30;
+			}]);
+			sample.controller("emp",["$scope",function($scope){
+				$scope.name = "Sumanth";
+				$scope.sal = 15000;
+				$scope.annualSalary = function(){
+					return ($scope.sal)*12;
+				};
+			}]);
+
+			sample.controller("empInfo",["$scope",function($scope){
+				$scope.city = "Nellore";
+				$scope.phone= 7093634089;
+			}]);
+
+			sample.controller("empPayCheck",["$scope","$rootScope",function($scope,$rootScope){
+				$scope.getTaxes= function(){
+					return $scope.sal * $rootScope.TaxPercent/100;
+				};
+				$scope.getNet= function(){
+					return $scope.sal-$scope.getTaxes();
+				};
+			}]);
+
+		</script> 
+	</head>
+	<body ng-app="sample">
+		<div ng-controller = "emp">
+			<strong>hello {{name}} ! with salary earning {{sal}} per month and with an annual salary of {{annualSalary()}} .</strong>
+			<div ng-controller = "empInfo">
+				and Mr.{{name}} ! living in {{city}} and phone: {{phone}}.
+				<div ng-controller = "empPayCheck">
+					Per Month Details : <br>
+					Taxes:{{getTaxes()}} <br>
+					Net : {{getNet()}}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

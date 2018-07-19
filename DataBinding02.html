@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<mega charset = "utf-8">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script type="text/javascript" src="DataBinding02.js"></script>
+</head>
+<body ng-app="app">
+	<div ng-controller="emp">
+		<!--"One-time Binding"using "::" before angular expressions. -->
+		<div>
+			Intial value of a is {{::a}} <br>
+			Intial value of b is {{::b}} <br>
+		</div>
+		<!--"Oneway Binding" using ng-bind-->
+		<hr>
+		value of a is <span ng-bind = "a"></span><br>
+		value of b is <span ng-bind = "b"></span><br>
+		<hr>
+		Sum = {{sum}} <br>
+		<button ng-click="doDoubleAndSum()">
+			calculate
+		</button>
+
+	</div>
+</body>
+</html>

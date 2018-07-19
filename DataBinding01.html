@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<mega charset = "utf-8">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script type="text/javascript" src="DataBinding01.js"></script>
+</head>
+<body ng-app="app">
+	<div ng-controller="emp">
+		<!--"One Way Binding"using angular expressions. -->
+		<div>
+			value of a is {{a}} <br>
+			value of b is {{b}} <br>
+		</div>
+		<!--"Oneway Binding" using ng-bind-->
+		<hr>
+		value of a is <span ng-bind = "a"></span><br>
+		value of b is <span ng-bind = "b"></span><br>
+
+	</div>
+</body>
+</html>
